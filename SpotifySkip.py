@@ -37,7 +37,7 @@ async def press_play():
             if await session.try_play_async() and await session.try_skip_next_async():
                 print("Playback successful")
             else:
-                print("fuck you")
+                print("Error Occurred")
 
 
 if __name__ == '__main__':
