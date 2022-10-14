@@ -8,7 +8,10 @@ from winsdk.windows.media.control import MediaPropertiesChangedEventArgs
 
 
 async def get_media_info():
-    sessions = await MediaManager.request_async()
+    try:
+        sessions = await MediaManager.request_async()
+    except:
+        return None
 
     current_session = sessions.get_current_session()
     if current_session is None:
@@ -37,7 +40,7 @@ async def press_play():
             if await session.try_play_async() and await session.try_skip_next_async():
                 print("Playback successful")
             else:
-                print("Error Occurred")
+                print("fuck you")
 
 
 if __name__ == '__main__':
